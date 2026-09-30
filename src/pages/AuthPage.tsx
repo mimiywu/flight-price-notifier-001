@@ -1,30 +1,12 @@
-import { useState } from "react";
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { supabase } from "@/integrations/supabase/client";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
 
-export const Route = createFileRoute("/auth")({
-  head: () => ({
-    meta: [
-      { title: "Sign in / 登入 — Flight Price Notifier" },
-      {
-        name: "description",
-        content: "Sign in or create an account to watch flight prices from Taipei.",
-      },
-      { property: "og:title", content: "Sign in / 登入 — Flight Price Notifier" },
-      {
-        property: "og:description",
-        content: "Sign in or create an account to watch flight prices from Taipei.",
-      },
-    ],
-  }),
-  component: AuthPage,
-});
-
-function AuthPage() {
+export function AuthPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [mode, setMode] = useState<'signin' | 'signup'>('signin');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -35,7 +17,7 @@ function AuthPage() {
     setError(null);
     setNotice(null);
 
-    if (mode === "signup") {
+    if (mode === 'signup') {
       const { data, error: signUpError } = await supabase.auth.signUp({
         email,
         password,
@@ -44,9 +26,9 @@ function AuthPage() {
       if (signUpError) {
         setError(signUpError.message);
       } else if (data.session) {
-        navigate({ to: "/app" });
+        navigate('/app');
       } else {
-        setNotice("Check your email to confirm your account. 請查看信箱完成驗證。");
+        setNotice('Check your email to confirm your account. 請查看信箱完成驗證。');
       }
     } else {
       const { error: signInError } = await supabase.auth.signInWithPassword({
@@ -54,7 +36,7 @@ function AuthPage() {
         password,
       });
       if (signInError) setError(signInError.message);
-      else navigate({ to: "/app" });
+      else navigate('/app');
     }
     setBusy(false);
   }
@@ -72,12 +54,12 @@ function AuthPage() {
       <main className="flex flex-1 items-center justify-center px-5 py-16">
         <div className="animate-fade-up w-full max-w-md rounded-2xl border border-border/70 bg-card p-7">
           <h1 className="text-2xl font-bold tracking-tight">
-            {mode === "signin" ? "Sign in / 登入" : "Sign up / 註冊"}
+            {mode === 'signin' ? 'Sign in / 登入' : 'Sign up / 註冊'}
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            {mode === "signin"
-              ? "Welcome back. 歡迎回來。"
-              : "Create an account to start watching fares. 建立帳號開始追蹤票價。"}
+            {mode === 'signin'
+              ? 'Welcome back. 歡迎回來。'
+              : 'Create an account to start watching fares. 建立帳號開始追蹤票價。'}
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -119,22 +101,22 @@ function AuthPage() {
               disabled={busy}
               className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-60"
             >
-              {busy ? "Please wait…" : mode === "signin" ? "Sign in / 登入" : "Sign up / 註冊"}
+              {busy ? 'Please wait…' : mode === 'signin' ? 'Sign in / 登入' : 'Sign up / 註冊'}
             </button>
           </form>
 
           <button
             type="button"
             onClick={() => {
-              setMode(mode === "signin" ? "signup" : "signin");
+              setMode(mode === 'signin' ? 'signup' : 'signin');
               setError(null);
               setNotice(null);
             }}
             className="mt-5 w-full text-sm text-muted-foreground transition hover:text-foreground"
           >
-            {mode === "signin"
-              ? "No account yet? Sign up / 還沒有帳號？註冊"
-              : "Already have an account? Sign in / 已有帳號？登入"}
+            {mode === 'signin'
+              ? 'No account yet? Sign up / 還沒有帳號？註冊'
+              : 'Already have an account? Sign in / 已有帳號？登入'}
           </button>
         </div>
       </main>

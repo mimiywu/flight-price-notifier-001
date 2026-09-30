@@ -1,45 +1,25 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useAuth } from "@/hooks/useAuth";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Flight Price Notifier — 機票降價通知" },
-      {
-        name: "description",
-        content:
-          "Watch popular flight routes from Taipei and get an email the moment the cheapest fare drops to your target price.",
-      },
-      { property: "og:title", content: "Flight Price Notifier — 機票降價通知" },
-      {
-        property: "og:description",
-        content:
-          "Watch popular flight routes from Taipei and get an email the moment the cheapest fare drops to your target price.",
-      },
-    ],
-  }),
-  component: Landing,
-});
+import { Link } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 
 const features = [
   {
-    zh: "盯緊熱門航線",
-    en: "Always-on route watching",
-    body: "持續監控台北出發的熱門航線（東京、首爾），自動抓最低票價。",
+    zh: '盯緊熱門航線',
+    en: 'Always-on route watching',
+    body: '持續監控台北出發的熱門航線（東京、首爾），自動抓最低票價。',
   },
   {
-    zh: "達標自動通知",
-    en: "Target-price email alerts",
-    body: "低於你設定的目標價，就寄 email 提醒你，附上立即訂購連結。",
+    zh: '達標自動通知',
+    en: 'Target-price email alerts',
+    body: '低於你設定的目標價，就寄 email 提醒你，附上立即訂購連結。',
   },
   {
-    zh: "隨時取消",
-    en: "Cancel anytime",
-    body: "月訂閱制，不想用隨時停，沒有綁約。",
+    zh: '隨時取消',
+    en: 'Cancel anytime',
+    body: '月訂閱制，不想用隨時停，沒有綁約。',
   },
 ];
 
-function Landing() {
+export function Landing() {
   const { user } = useAuth();
 
   return (
@@ -88,10 +68,10 @@ function Landing() {
             </p>
             <div className="animate-fade-up mt-10">
               <Link
-                to={user ? "/app" : "/auth"}
+                to={user ? '/app' : '/auth'}
                 className="glow-violet inline-flex rounded-xl bg-primary px-7 py-3 text-base font-semibold text-primary-foreground transition hover:opacity-90"
               >
-                {user ? "Open app" : "Sign in / 登入"}
+                {user ? 'Open app' : 'Sign in / 登入'}
               </Link>
             </div>
           </div>
