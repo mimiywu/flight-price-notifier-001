@@ -83,7 +83,7 @@ export function Landing() {
               <article
                 key={f.en}
                 className="animate-fade-up rounded-2xl border-2 border-border bg-card p-6 transition hover:border-primary/60"
-                style={{ boxShadow: '0 4px 12px rgba(212, 98, 42, 0.1)' }}
+                style={{ boxShadow: '0 4px 12px rgba(43, 125, 233, 0.12)' }}
               >
                 <h2 className="text-lg font-semibold">{f.zh}</h2>
                 <p className="mt-1 text-sm font-medium text-primary">{f.en}</p>

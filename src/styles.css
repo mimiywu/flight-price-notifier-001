@@ -37,25 +37,25 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #F5F0E8;
-  --foreground: #3D2B1F;
-  --card: #EDE8DC;
-  --card-foreground: #3D2B1F;
-  --popover: #EDE8DC;
-  --popover-foreground: #3D2B1F;
-  --primary: #D4622A;
-  --primary-foreground: #F5F0E8;
-  --secondary: #E8A0B0;
-  --secondary-foreground: #3D2B1F;
-  --muted: #F0E6E8;
-  --muted-foreground: #8B7370;
-  --accent: #E8A0B0;
-  --accent-foreground: #3D2B1F;
+  --background: #F0F6FC;
+  --foreground: #1A2A3A;
+  --card: #E8F0F8;
+  --card-foreground: #1A2A3A;
+  --popover: #E8F0F8;
+  --popover-foreground: #1A2A3A;
+  --primary: #2B7DE9;
+  --primary-foreground: #F0F6FC;
+  --secondary: #7EC8E3;
+  --secondary-foreground: #1A2A3A;
+  --muted: #DCEAF5;
+  --muted-foreground: #5A7A8A;
+  --accent: #7EC8E3;
+  --accent-foreground: #1A2A3A;
   --destructive: #C84B4B;
-  --destructive-foreground: #F5F0E8;
-  --border: #D4C5B9;
-  --input: #D4C5B9;
-  --ring: #D4622A;
+  --destructive-foreground: #F0F6FC;
+  --border: #B8D4E8;
+  --input: #B8D4E8;
+  --ring: #2B7DE9;
 }
 
 @layer base {
@@ -72,14 +72,14 @@
 }
 
 @utility glow-violet {
-  box-shadow: 0 0 60px -12px oklch(0.62 0.21 25 / 0.55);
+  box-shadow: 0 0 60px -12px rgba(43, 125, 233, 0.55);
 }
 
 @utility text-gradient-violet {
   background-image: linear-gradient(
     100deg,
-    #D4622A,
-    #E8A0B0
+    #2B7DE9,
+    #7EC8E3
   );
   background-clip: text;
   color: transparent;
