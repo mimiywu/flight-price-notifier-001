@@ -57,7 +57,7 @@ export function Landing() {
             <p className="animate-fade-up text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
               Taipei departures
             </p>
-            <h1 className="animate-fade-up mt-5 text-4xl font-extrabold leading-tight tracking-tight text-gradient-violet sm:text-6xl">
+            <h1 className="animate-fade-up mt-5 text-4xl font-extrabold leading-tight tracking-tight text-gradient-violet sm:text-6xl" style={{ fontFamily: 'var(--font-display)' }}>
               Flight Price Notifier
             </h1>
             <p className="animate-fade-up mt-6 text-xl font-semibold sm:text-2xl">
@@ -82,7 +82,8 @@ export function Landing() {
             {features.map((f) => (
               <article
                 key={f.en}
-                className="animate-fade-up rounded-2xl border border-border/70 bg-card p-6 transition hover:border-primary/50"
+                className="animate-fade-up rounded-2xl border-2 border-border bg-card p-6 transition hover:border-primary/60"
+                style={{ boxShadow: '0 4px 12px rgba(212, 98, 42, 0.1)' }}
               >
                 <h2 className="text-lg font-semibold">{f.zh}</h2>
                 <p className="mt-1 text-sm font-medium text-primary">{f.en}</p>
